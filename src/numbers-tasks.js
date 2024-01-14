@@ -441,8 +441,16 @@ function getNumberValue(number) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  const typeNumber = typeof number;
+  const isNANNumber = Number.isNaN(number);
+  const finiteNumber = Number.isFinite(number);
+  if (typeNumber === 'number') {
+    if (!isNANNumber && finiteNumber) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
@@ -456,8 +464,9 @@ function isNumber(/* number */) {
  * 5.1  => false
  * '5'  => false
  */
-function isInteger(/* number */) {
-  throw new Error('Not implemented');
+function isInteger(number) {
+  const result = Number.isInteger(number);
+  return result;
 }
 
 /**
@@ -470,8 +479,9 @@ function isInteger(/* number */) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  const result = Number.parseFloat(str);
+  return result;
 }
 
 /**
@@ -488,8 +498,9 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  const result = Number.parseInt(str, base);
+  return result;
 }
 
 /**
@@ -503,8 +514,9 @@ function getIntegerOnString(/* str, base */) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  const result = Number.isSafeInteger(number);
+  return result;
 }
 
 /**
@@ -517,8 +529,9 @@ function isSafeInteger(/* number */) {
  * 5.9  => 5
  * -5.1 => -6
  */
-function roundToSmallestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToSmallestInteger(number) {
+  const result = Math.floor(number);
+  return result;
 }
 
 /**
@@ -531,8 +544,9 @@ function roundToSmallestInteger(/* number */) {
  * 5.1  => 6
  * -5.9 => -5
  */
-function roundToLargestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToLargestInteger(number) {
+  const result = Math.ceil(number);
+  return result;
 }
 
 /**
@@ -546,8 +560,9 @@ function roundToLargestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToNearestInteger(number) {
+  const result = Math.round(number);
+  return result;
 }
 
 /**
@@ -561,8 +576,9 @@ function roundToNearestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  const result = Math.trunc(number);
+  return result;
 }
 
 /**
@@ -577,8 +593,10 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  const sum3 = x1 + x2 + x3;
+  const result = Number(sum3.toFixed(2));
+  return result;
 }
 
 /**
@@ -593,8 +611,9 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  const result = Math.max(firstNumber, secondNumber);
+  return result;
 }
 
 /**
